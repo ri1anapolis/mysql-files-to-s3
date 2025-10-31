@@ -1,6 +1,5 @@
 import { promises as fs } from "fs"
-const ungzip = require("node-gzip").ungzip
-import cleanData from "./cleanData"
+import cleanData from "./cleanData.js"
 
 interface LocalDataRow {
   id: string | number
@@ -27,8 +26,9 @@ const saveLocalRtfFiles = async (
         const rtfFileName = `${localFolder}/${row.id}.rtf`
 
         try {
+          const { ungzip } = await import("node-gzip")
           const uncompressed = await ungzip(row.file)
-          const cleaned = cleanData(uncompressed)
+          const cleaned = cleanData(Buffer.from(uncompressed))
           await fs.writeFile(rtfFileName, Buffer.from(cleaned))
           numSavedFiles++
         } catch (error) {

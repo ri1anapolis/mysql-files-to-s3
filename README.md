@@ -30,7 +30,7 @@ This application is a modernized version of a file processing microservice that:
 - **Database**: MySQL (source), MongoDB Atlas (metadata)
 - **Cloud Storage**: S3-compatible services (MinIO)
 - **File Processing**: LibreOffice (for RTF to PDF conversion)
-- **Build Tools**: TypeScript compiler, ts-node for development
+- **Build Tools**: TypeScript compiler, Node.js runtime for development
 
 ## Prerequisites
 
@@ -239,7 +239,7 @@ The application follows this processing pipeline:
 
 - `npm run build`: Compile TypeScript to JavaScript
 - `npm start`: Run the compiled application
-- `npm run dev`: Run in development mode with ts-node
+- `npm run dev`: Run the compiled application in development mode
 - `npm run clean`: Remove build artifacts
 - `npm run type-check`: Validate TypeScript types without compilation
 

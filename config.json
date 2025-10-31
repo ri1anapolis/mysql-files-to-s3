@@ -1,0 +1,34 @@
+{
+  "crypto_key": "KbPpimb@N4caximb0c49y$B&E)HcQWnZ",
+  "mysql": {
+    "query": "SELECT CONCAT('RE-', CAST(l1.L1_Protocolo AS CHAR)) AS 'id', rr.rr_protURA AS 'verification_code', ex.ex_blob AS 'file' FROM sqlreg3.l1 l1 INNER JOIN sqlreg3.rr rr ON(l1.L1_ProtRecep = rr.Rr_Protocolo) JOIN sqlreg3.ex ex ON ex.Ex_Id = ( SELECT ex.Ex_Id FROM sqlreg3.ex ex WHERE ex.ex_protocolo = l1.L1_Protocolo ORDER BY ex.Ex_Id DESC LIMIT 1 ) WHERE l1.L1_Ativo = 1 AND l1.l1_etapa = 15 AND (rr.rr_protURA IS NOT NULL AND rr.rr_protURA != '')",
+    "connectionParameters": {
+      "host": "192.168.1.253",
+      "port": "3306",
+      "database": "sqlreg3",
+      "user": "usrdmp",
+      "password": "123123"
+    }
+  },
+  "mongo": {
+    "db": "ri1anapolis",
+    "collection": "requirements_notes",
+    "connectionParameters": {
+      "uri": "mongodb://ri1anapolis:cP57QMhlnBcl4ecauvwnrEE8MjUeiAT1ZRfLWFcSbQ9yyIEFKxkLqo2qP3r7Hdeu@145.223.29.205:65432/?directConnection=true",
+      "options": {
+        "useNewUrlParser": true,
+        "useUnifiedTopology": true
+      }
+    }
+  },
+  "s3": {
+    "fileRetention": 30,
+    "defaultPrefix": "documents",
+    "bucket": "site",
+    "connectionParameters": {
+      "uri": "https://api-strg.srv.ri1anapolis.com.br",
+      "user": "kD4kSDkqxIPRUUZl",
+      "password": "9jgsRNJoU5vJhA3fBt2cewfQ565gJ7jT"
+    }
+  }
+}

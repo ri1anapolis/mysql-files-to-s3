@@ -25,4 +25,4 @@ const convertFiles = async (localFolder: string): Promise<void> => {
   }
 }
 
-export = convertFiles
+export default convertFiles

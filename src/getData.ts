@@ -41,4 +41,4 @@ async function getData({
   }
 }
 
-export = getData
+export default getData

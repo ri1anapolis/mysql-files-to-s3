@@ -1,14 +1,18 @@
 import { readFile } from "fs/promises"
 import path from "path"
+import { fileURLToPath } from "url"
 
-import s3Data from "./s3Data"
-import getData from "./getData"
-import convertFiles from "./convertFiles"
-import uploadFiles from "./uploadFiles"
-import remoteFileRetention from "./remoteFilesRetention"
-import deleteLocalFiles from "./deleteLocalFiles"
-import saveLocalRtfFiles from "./saveLocalRtfFiles"
-import sendResults from "./sendResults"
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+import s3Data from "./s3Data.js"
+import getData from "./getData.js"
+import convertFiles from "./convertFiles.js"
+import uploadFiles from "./uploadFiles.js"
+import remoteFileRetention from "./remoteFilesRetention.js"
+import deleteLocalFiles from "./deleteLocalFiles.js"
+import saveLocalRtfFiles from "./saveLocalRtfFiles.js"
+import sendResults from "./sendResults.js"
 
 // Type definitions
 interface UploadedFile {

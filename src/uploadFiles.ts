@@ -1,6 +1,6 @@
 import { promises as fs } from "fs"
 import { Client } from "minio"
-import { encrypt } from "./utils/encrypt"
+import { encrypt } from "./utils/encrypt.js"
 
 interface LocalDataRow {
   id: string | number

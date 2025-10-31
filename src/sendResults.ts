@@ -62,4 +62,4 @@ async function sendResults(
   }
 }
 
-export = sendResults
+export default sendResults

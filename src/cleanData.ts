@@ -1,4 +1,4 @@
-import rtfHeader from "./utils/rtfHeaderRaw"
+import rtfHeader from "./utils/rtfHeaderRaw.js"
 
 const cleanData = (_buffer_: Buffer): string => {
   // The RTF files got from database not work well on linux!
@@ -22,4 +22,4 @@ const cleanData = (_buffer_: Buffer): string => {
     .replace(/\{\\rtf.*/, "")}`
 }
 
-export = cleanData
+export default cleanData

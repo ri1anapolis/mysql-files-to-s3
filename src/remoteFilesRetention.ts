@@ -1,6 +1,6 @@
 import { Client } from "minio"
-import { daysBetweenDates } from "./utils/daysBetweenDates"
-import { LocalDataRow } from "./types/shared"
+import { daysBetweenDates } from "./utils/daysBetweenDates.js"
+import { LocalDataRow } from "./types/shared.js"
 
 /**
  * Service for managing remote file retention policies

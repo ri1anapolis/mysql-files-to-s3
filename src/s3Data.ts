@@ -90,4 +90,4 @@ const s3Data = async (
   }
 }
 
-export = s3Data
+export default s3Data
