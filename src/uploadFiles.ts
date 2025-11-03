@@ -1,25 +1,7 @@
 import { promises as fs } from "fs"
-import { Client } from "minio"
 import { encrypt } from "./utils/encrypt.js"
-
-interface LocalDataRow {
-  id: string | number
-  verification_code: string
-  [key: string]: any
-}
-
-interface S3Data {
-  client: Client
-  bucket: string
-  prefix: string
-  filesNames: string[]
-}
-
-interface UploadedFile {
-  _id: string | number
-  hash: string
-  encrypted_url: string
-}
+import { S3Data } from "./s3Data.js"
+import { LocalDataRow, UploadedFile } from "./types/shared.js"
 
 const uploadFiles = async (
   localData: LocalDataRow[],

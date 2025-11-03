@@ -13,13 +13,7 @@ import remoteFileRetention from "./remoteFilesRetention.js"
 import deleteLocalFiles from "./deleteLocalFiles.js"
 import saveLocalRtfFiles from "./saveLocalRtfFiles.js"
 import sendResults from "./sendResults.js"
-
-// Type definitions
-interface UploadedFile {
-  _id: string | number
-  hash: string
-  encrypted_url: string
-}
+import { UploadedFile } from "./types/shared.js"
 
 async function main() {
   console.log(`::: Application: Job started!`)

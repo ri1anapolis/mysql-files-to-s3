@@ -52,7 +52,6 @@ The application includes the following runtime dependencies:
   "minio": "^8.0.6",
   "mongodb": "^6.20.0",
   "mysql2": "^3.15.3",
-  "node-gzip": "^1.1.2",
   "typescript": "^5.9.3"
 }
 ```
@@ -118,7 +117,6 @@ The application uses a JSON configuration file to specify database connections, 
   },
   "s3": {
     "fileRetention": 30,
-    "defaultPrefix": "documents",
     "bucket": "your-bucket-name",
     "connectionParameters": {
       "uri": "https://your-s3-endpoint.com",

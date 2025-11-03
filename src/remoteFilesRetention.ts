@@ -1,6 +1,7 @@
 import { Client } from "minio"
 import { daysBetweenDates } from "./utils/daysBetweenDates.js"
 import { LocalDataRow } from "./types/shared.js"
+import { S3Data } from "./s3Data.js"
 
 /**
  * Service for managing remote file retention policies
@@ -13,19 +14,6 @@ import { LocalDataRow } from "./types/shared.js"
 interface FileDeletionRule {
   isOutdated: boolean
   isNotInLocal: boolean
-}
-
-interface S3Data {
-  client: Client
-  bucket: string
-  retention: number
-  prefix: string
-  files: Array<{
-    name: string
-    lastModified: string | undefined
-    size: number | undefined
-  }>
-  filesNames: string[]
 }
 
 /**

@@ -23,7 +23,6 @@
   },
   "s3": {
     "fileRetention": 30,
-    "defaultPrefix": "documents",
     "bucket": "your-bucket-name",
     "connectionParameters": {
       "uri": "https://your-s3-endpoint.com",

@@ -1,11 +1,7 @@
 import { promises as fs } from "fs"
 import cleanData from "./cleanData.js"
-
-interface LocalDataRow {
-  id: string | number
-  file: Uint8Array | Buffer
-  [key: string]: any
-}
+import { LocalDataRow } from "./types/shared.js"
+import { gunzipSync } from "zlib"
 
 interface RemoteFilesData {
   filesNames: string[]
@@ -26,8 +22,7 @@ const saveLocalRtfFiles = async (
         const rtfFileName = `${localFolder}/${row.id}.rtf`
 
         try {
-          const { ungzip } = await import("node-gzip")
-          const uncompressed = await ungzip(row.file)
+          const uncompressed = gunzipSync(row.file)
           const cleaned = cleanData(Buffer.from(uncompressed))
           await fs.writeFile(rtfFileName, Buffer.from(cleaned))
           numSavedFiles++

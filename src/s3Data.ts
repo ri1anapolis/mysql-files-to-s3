@@ -2,7 +2,6 @@ import { Client } from "minio"
 
 interface S3Config {
   fileRetention: number
-  defaultPrefix: string
   [key: string]: any
 }
 
@@ -19,7 +18,7 @@ interface S3File {
   size: number | undefined
 }
 
-interface S3Data {
+export interface S3Data {
   retention: number
   prefix: string
   client: Client
@@ -50,12 +49,11 @@ const s3Data = async (
 
     const data: S3Data = {} as S3Data
     data.retention = fileRetention
-    data.prefix = defaultPrefix
     data.client = client
     data.bucket = bucket
 
     // List objects in the bucket with prefix
-    const stream = client.listObjectsV2(bucket, defaultPrefix, true, "")
+    const stream = client.listObjectsV2(bucket, undefined, true, "")
     const files: S3File[] = []
 
     return new Promise((resolve, reject) => {
